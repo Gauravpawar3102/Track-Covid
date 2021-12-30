@@ -1,0 +1,19 @@
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #bdf2ff;
+  align-items: center;
+  text-decoration: underline;
+  height: 65vh;
+}
+.hero-list {
+  background-color: #bdf2ff;
+}
+.hero-list ul {
+  display: inline-block;
+  width: fit-content;
+}
+.hero-list ul li {
+  max-width: 90vw;
+  margin-bottom: 1.5rem;
+}
