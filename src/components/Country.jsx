@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import CountryData from './CountryData';
+// import { countryName } from './CountryData';
+import getData from './CountryData';
 class Country extends Component {
   render() {
     return (
       <div>
         <select>
-          <option disabled={true}>-- Select Country --</option>
-          {CountryData.countryName.map((names) => (
-            <option>{names.cName}</option>
-          ))}{' '}
+          <option value="global">Global</option>
+          <option value="global">Global</option>
         </select>
-        {/* <CountryData /> */}
+        {/* <countryData /> */}
       </div>
     );
   }
