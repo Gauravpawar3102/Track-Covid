@@ -8,7 +8,7 @@ function Country() {
   useEffect(() => {
     const options = {
       method: 'GET',
-      url: 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA',
+      url: 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/',
       headers: {
         'x-rapidapi-host':
           'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com',
@@ -21,7 +21,7 @@ function Country() {
       .then(function (response) {
         console.log(response.data);
         setCountries(response.data);
-        console.log(response.data.map((countries) => countries.id));
+        // console.log(response.data.map((countries) => countries.id));
       })
       .catch(function (error) {
         console.error(error);
