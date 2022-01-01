@@ -25,7 +25,7 @@ function Country() {
         // console.log(res);
         setCountries(res);
       });
-    let items = [];
+    const items = [];
     // console.log(data.map((countries) => countries.Country));
     // console.log(countries);
     countries.forEach((country) => {
@@ -41,7 +41,7 @@ function Country() {
   return (
     <div>
       <label htmlFor="countries">select Country</label>
-      <select onChange={onChange}>{createSelectItems()}</select>
+      <select onChange={onChange}>{createSelectItems}</select>
     </div>
   );
 }
