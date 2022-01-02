@@ -4,6 +4,20 @@ import axios from 'axios';
 
 function Country() {
   const [countries, setCountries] = useState([]);
+  const [cases, setCases] = useState(0);
+
+  const casesHandler = (e) => {
+    console.log(e.target.value);
+    setCases(e.target.value);
+
+    // const change = e.target.value;
+  };
+  // const recoveredHandler = (e) => {
+  //   console.log(e.target.value);
+  //   setCasesRecovered(e.target.key);
+
+  //   // const change = e.target.value;
+  // };
 
   useEffect(() => {
     const options = {
@@ -21,6 +35,10 @@ function Country() {
       .then(function (response) {
         console.log(response.data);
         setCountries(response.data);
+
+        setCases(response.data[0].TotalCases);
+        console.log(response.data[0].TotalCases);
+
         // console.log(response.data.map((countries) => countries.id));
       })
       .catch(function (error) {
@@ -29,14 +47,18 @@ function Country() {
   }, []);
   return (
     <div>
-      <label>select Country</label>
-      <select>
+      <label>Stats Overview</label>
+      <select onChange={casesHandler}>
         {countries.map((country) => (
-          <option key={country.id} value={country.id}>
+          <option key={country.id} value={country.TotalCases}>
             {country.Country}
           </option>
         ))}
       </select>
+
+      <div className="data-container">
+        <h1 onChange={casesHandler}>total cases :{cases}</h1>
+      </div>
     </div>
   );
 }
