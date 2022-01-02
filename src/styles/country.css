@@ -1,0 +1,29 @@
+.databox {
+  display: flex;
+  background: white;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0.5rem;
+  border: 2px solid black;
+  background: aqua;
+}
+.country {
+  padding: 1rem;
+  font-size: larger;
+  display: block;
+  align-items: center;
+  background-color: aqua;
+  width: 30vw;
+  /* border-radius: 1rem; */
+}
+
+select {
+  font-size: larger;
+}
+.data-container {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}

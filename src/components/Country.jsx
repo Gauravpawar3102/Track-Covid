@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
+import '../styles/country.css';
 
 function Country() {
   const [countries, setCountries] = useState([]);
-  const [cases, setCases] = useState(0);
+  const [cases, setCases] = useState(`0, 0, 0`);
 
   const casesHandler = (e) => {
     console.log(e.target.value);
@@ -36,8 +36,8 @@ function Country() {
         console.log(response.data);
         setCountries(response.data);
 
-        setCases(response.data[0].TotalCases);
-        console.log(response.data[0].TotalCases);
+        // setCases(response.data[0].TotalCases);
+        // console.log(response.data[0].TotalCases);
 
         // console.log(response.data.map((countries) => countries.id));
       })
@@ -46,18 +46,27 @@ function Country() {
       });
   }, []);
   return (
-    <div>
-      <label>Stats Overview</label>
-      <select onChange={casesHandler}>
-        {countries.map((country) => (
-          <option key={country.id} value={country.TotalCases}>
-            {country.Country}
-          </option>
-        ))}
-      </select>
-
+    <div className="databox">
+      <div className="country">
+        <label>Stats Overview</label>
+        <select onChange={casesHandler}>
+          {countries.map((country) => (
+            <option
+              key={country.id}
+              value={[
+                country.TotalCases,
+                country.TotalRecovered,
+                country.TotalDeaths,
+              ]}
+            >
+              {country.Country}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="data-container">
-        <h1 onChange={casesHandler}>total cases :{cases}</h1>
+        <h1 onChange={casesHandler}>Total Cases ,TotalRecovered,TotalDeaths</h1>
+        <h1>{cases}</h1>
       </div>
     </div>
   );
