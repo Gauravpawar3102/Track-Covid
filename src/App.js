@@ -2,7 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Data from './components/Data';
-// import PreCautions from './components/PreCautions';
+import PreCautions from './components/PreCautions';
 import Map from './mapComp/Map';
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <Hero />
       <Data />
       <Map />
-      {/* <PreCautions /> */}
+      <PreCautions />
+      <PreCautions />
     </>
   );
 }

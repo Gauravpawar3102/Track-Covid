@@ -1,7 +1,10 @@
 .map {
-  width: 50vw;
-  height: 50vh;
+  width: 100vw;
+  height: 60vh;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .location-marker {
   color: red;
