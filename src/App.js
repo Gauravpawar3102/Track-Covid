@@ -12,7 +12,7 @@ function App() {
       <Data />
       <Map />
       <PreCautions />
-      <PreCautions />
+      {/* <PreCautions /> */}
     </>
   );
 }
