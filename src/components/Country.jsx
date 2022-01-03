@@ -48,7 +48,9 @@ function Country() {
   return (
     <div className="databox">
       <div className="country">
-        <label>Stats Overview</label>
+        <h4>Select Country to See Data</h4>
+
+        <h3>Stats Overview</h3>
         <select onChange={casesHandler}>
           {countries.map((country) => (
             <option
@@ -64,7 +66,7 @@ function Country() {
           ))}
         </select>
       </div>
-      <div className="data-container">
+      <div className="data-country-container">
         <h1 onChange={casesHandler}>Total Cases ,TotalRecovered,TotalDeaths</h1>
         <h1>{cases}</h1>
       </div>
