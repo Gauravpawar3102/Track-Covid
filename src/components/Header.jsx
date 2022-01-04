@@ -1,13 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVirus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/header.css';
 import { signOut } from 'firebase/auth';
 
 import { auth } from '../firebase-config';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 function Header() {
+  let navigate = useNavigate();
+
   const [isAuth, setIsAuth] = useState(false);
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -16,6 +24,11 @@ function Header() {
       window.location.pathname = '/login';
     });
   };
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/login');
+    }
+  }, []);
 
   return (
     <div className="header-container">
@@ -28,15 +41,18 @@ function Header() {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/blog">
-            <li>Blog</li>
-          </Link>
+
           {!localStorage.isAuth ? (
             <Link setIsAuth={setIsAuth} to="/login">
               <li>Login</li>
             </Link>
           ) : (
-            <button onClick={signUserOut}>Log Out</button>
+            <>
+              <Link to="/blog">
+                <li>Blog</li>
+              </Link>
+              <button onClick={signUserOut}>Log Out</button>
+            </>
           )}
           <Link to="/contactus">
             <li>Contact-Us</li>
