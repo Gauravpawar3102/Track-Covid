@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVirus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/header.css';
@@ -11,8 +12,13 @@ function Header() {
       </div>
       <section className="menu">
         <ul>
-          <li>Home</li>
-          <li>our Team</li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/blog">
+            <li>Blog</li>
+          </Link>
+
           <li>Contact-Us</li>
         </ul>
       </section>
