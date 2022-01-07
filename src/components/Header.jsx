@@ -49,7 +49,7 @@ function Header() {
             </Link>
           ) : (
             <>
-              <Link to="/blog">
+              <Link to="/Blogpost">
                 <li>Blog</li>
               </Link>
               <button onClick={signUserOut}>Log Out</button>
@@ -57,6 +57,9 @@ function Header() {
           )}
           <Link to="/contactus">
             <li>Contact-Us</li>
+          </Link>
+          <Link to="/Blog">
+            <li>Create/Delete Post</li>
           </Link>
         </ul>
       </section>

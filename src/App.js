@@ -9,9 +9,10 @@ import Map from './mapComp/Map';
 import Blog from '../src/blog/Blog';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
+import BlogPost from './blog/BlogPost';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
 
   return (
     <>
@@ -28,16 +29,19 @@ function App() {
                 <Data />
                 <Map />
                 <PreCautions />
+                <h1 className="blog-home-header">Blog</h1>
+                <BlogPost />
               </div>
             }
           ></Route>
-          <Route path="/Blog" element={<Blog />} />
+          <Route path="/Blog" element={<Blog isAuth={isAuth} />} />
           <Route
             isAuth={isAuth}
             path="/Login"
             element={<Login setIsAuth={setIsAuth} />}
           />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/blogpost" element={<BlogPost />} />
         </Routes>
       </Router>
     </>

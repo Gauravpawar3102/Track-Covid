@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
 import BlogPost from './BlogPost';
-function Blog() {
+function Blog({ isAuth }) {
   const [title, setTitle] = useState('');
   const [postText, setPostText] = useState('');
 
@@ -21,7 +21,7 @@ function Blog() {
 
   return (
     <>
-      <BlogPost />
+      <BlogPost isAuth={isAuth} />
       <div className="createPostPage">
         <div className="cpContainer">
           <h1>Create A Post</h1>

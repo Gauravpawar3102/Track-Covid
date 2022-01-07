@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../firebase-config';
-import { getDocs, collection } from 'firebase/firestore';
-function BlogPost() {
+import { db, auth } from '../firebase-config';
+import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
+function BlogPost({ isAuth }) {
   const [postList, setPostList] = useState([]);
   const postsCollectionRef = collection(db, 'posts');
   useEffect(() => {
@@ -15,23 +15,42 @@ function BlogPost() {
       );
     };
     getPosts();
-  });
+  }, []);
+
+  const deletePost = async (id) => {
+    const postDoc = doc(db, 'posts', id);
+    await deleteDoc(postDoc);
+  };
+
   return (
-    <div className="homePage">
-      {postList.map((post) => {
-        return (
-          <div className="post">
-            <div className="postHeader">
-              <div className="title">
-                <h1>{post.title}</h1>
+    <>
+      <div className="homePage">
+        {postList.map((post) => {
+          return (
+            <div className="post">
+              <div className="postHeader">
+                <div className="title">
+                  <h1>{post.title}</h1>
+                </div>
+                <div className="deletePost">
+                  {isAuth && post.author.id === auth.currentUser.uid && (
+                    <button
+                      onClick={() => {
+                        deletePost(post.id);
+                      }}
+                    >
+                      X
+                    </button>
+                  )}
+                </div>
               </div>
+              <div className="postTextConatainer">{post.postText}</div>
+              <h3>@{post.author.name}</h3>
             </div>
-            <div className="postTextConatainer">{post.postText}</div>
-            <h3>@{post.author.name}</h3>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 

@@ -172,3 +172,9 @@ textarea {
   overflow: hidden;
   overflow-y: auto;
 }
+.blog-home-header {
+  display: flex;
+  justify-content: center;
+  color: greenyellow;
+  background-color: #757575;
+}
