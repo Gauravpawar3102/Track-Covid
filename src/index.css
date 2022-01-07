@@ -164,6 +164,12 @@ textarea {
   cursor: pointer;
 }
 
+.blog-home-header {
+  display: flex;
+  justify-content: center;
+  color: greenyellow;
+  background-color: #757575;
+}
 .post .postTextContainer {
   word-wrap: break-word;
   height: auto;
@@ -171,10 +177,4 @@ textarea {
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
-}
-.blog-home-header {
-  display: flex;
-  justify-content: center;
-  color: greenyellow;
-  background-color: #757575;
 }
