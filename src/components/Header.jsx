@@ -13,6 +13,7 @@ import { signOut } from 'firebase/auth';
 
 import { auth } from '../firebase-config';
 import { useState, useEffect } from 'react';
+
 function Header() {
   let navigate = useNavigate();
 
@@ -24,7 +25,7 @@ function Header() {
       window.location.pathname = '/login';
     });
   };
-  useEffect(() => {
+  useEffect((isAuth) => {
     if (!isAuth) {
       navigate('/login');
     }

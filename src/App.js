@@ -28,7 +28,6 @@ function App() {
                 <Data />
                 <Map />
                 <PreCautions />
-                <Blog />
               </div>
             }
           ></Route>

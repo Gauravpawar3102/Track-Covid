@@ -3,6 +3,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
+import BlogPost from './BlogPost';
 function Blog() {
   const [title, setTitle] = useState('');
   const [postText, setPostText] = useState('');
@@ -19,30 +20,33 @@ function Blog() {
   };
 
   return (
-    <div className="createPostPage">
-      <div className="cpContainer">
-        <h1>Create A Post</h1>
-        <div className="inputGp">
-          <label>Title:</label>
-          <input
-            placeholder="Title..."
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
+    <>
+      <BlogPost />
+      <div className="createPostPage">
+        <div className="cpContainer">
+          <h1>Create A Post</h1>
+          <div className="inputGp">
+            <label>Title:</label>
+            <input
+              placeholder="Title..."
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+          </div>
+          <div className="inputGp">
+            <label>Post:</label>
+            <textarea
+              placeholder="Post... "
+              onChange={(event) => {
+                setPostText(event.target.value);
+              }}
+            />
+          </div>
+          <button onClick={createPost}>Submit Post</button>
         </div>
-        <div className="inputGp">
-          <label>Post:</label>
-          <textarea
-            placeholder="Post... "
-            onChange={(event) => {
-              setPostText(event.target.value);
-            }}
-          />
-        </div>
-        <button onClick={createPost}>Submit Post</button>
       </div>
-    </div>
+    </>
   );
 }
 
