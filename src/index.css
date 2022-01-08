@@ -174,7 +174,7 @@ textarea {
 
 .blog-home-header {
   display: flex;
-  justify-content: center;
   color: greenyellow;
+  justify-content: center;
   background-color: #757575;
 }
