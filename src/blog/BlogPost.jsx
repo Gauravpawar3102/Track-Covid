@@ -29,7 +29,7 @@ function BlogPost({ isAuth }) {
           return (
             <div className="post">
               <div className="postHeader">
-                {/* {console.log(post.id)} */}
+                {console.log(post.author)}
                 <div className="title">
                   <h1>{post.title}</h1>
                 </div>
