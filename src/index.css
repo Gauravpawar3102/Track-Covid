@@ -164,11 +164,11 @@ textarea {
   cursor: pointer;
 }
 .post .postTextContainer {
-  word-wrap: break-word;
   height: auto;
+  word-wrap: break-word;
   max-height: 400px;
-  width: 100%;
   overflow: hidden;
+  width: 100%;
   overflow-y: auto;
 }
 
