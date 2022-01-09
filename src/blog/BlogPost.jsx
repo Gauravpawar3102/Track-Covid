@@ -29,6 +29,7 @@ function BlogPost({ isAuth }) {
           return (
             <div className="post">
               <div className="postHeader">
+                {/* {console.log(post.id)} */}
                 <div className="title">
                   <h1>{post.title}</h1>
                 </div>
