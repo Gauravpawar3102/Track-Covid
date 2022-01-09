@@ -35,6 +35,7 @@ function BlogPost({ isAuth }) {
                 <div className="deletePost">
                   {isAuth && post.author.id === auth.currentUser.uid && (
                     <button
+                      title="Delete post"
                       onClick={() => {
                         deletePost(post.id);
                       }}
